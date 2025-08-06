@@ -100,8 +100,13 @@ export const ProfileHeader = () => {
                 <h1 className="text-xl md:text-2xl font-bold text-foreground truncate">
                   Terd Imogen Inocentes
                 </h1>
-                <Badge variant="secondary" className="bg-blue-500/10 text-blue-600 border-blue-500/20 text-xs flex-shrink-0">
-                  ✓ Verified
+                <Badge variant="secondary" className="bg-blue-500/10 text-blue-600 border-blue-500/20 text-xs flex-shrink-0 flex items-center gap-1">
+                  <img 
+                    src="/image/Twitter_Verified_Badge.svg.png" 
+                    alt="Verified" 
+                    className="w-3 h-3"
+                  />
+                  Verified
                 </Badge>
               </motion.div>
               <motion.div 
