@@ -1,8 +1,20 @@
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare } from "lucide-react";
 
 export const ConnectSection = () => {
+  const buttonVariants = {
+    hover: { 
+      scale: 1.02,
+      transition: { duration: 0.2, ease: "easeOut" as const }
+    },
+    tap: { 
+      scale: 0.98,
+      transition: { duration: 0.1 }
+    }
+  };
+
   return (
     <Card className="shadow-sm h-full">
       <CardHeader className="py-4 px-5">
@@ -25,10 +37,16 @@ export const ConnectSection = () => {
 
           <div>
             <h3 className="text-sm font-medium mb-1">Let's Talk</h3>
-            <Button className="w-full text-xs" size="sm">
-              <Mail className="w-3 h-3 mr-1" />
-              Schedule a Call
-            </Button>
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Button className="w-full text-xs" size="sm">
+                <Mail className="w-3 h-3 mr-1" />
+                Schedule a Call
+              </Button>
+            </motion.div>
           </div>
 
           <div>
@@ -36,9 +54,15 @@ export const ConnectSection = () => {
             <p className="text-xs text-muted-foreground mb-2">
               Available for speaking on events about software development and emerging technologies.
             </p>
-            <Button variant="outline" size="sm" className="w-full text-xs">
-              Get in touch
-            </Button>
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Button variant="outline" size="sm" className="w-full text-xs">
+                Get in touch
+              </Button>
+            </motion.div>
           </div>
         </div>
       </CardContent>

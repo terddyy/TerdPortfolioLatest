@@ -12,7 +12,7 @@ export const AboutSection = () => {
       </CardHeader>
       <CardContent className="px-5 pb-5 space-y-4 text-sm text-muted-foreground break-words">
         <p>
-        I'm a full-stack software engineer skilled in the MERN stack, JavaScript, and PHP. I build custom tools, websites, and apps that solve real business problems—covering everything from SEO to digital marketing.
+        I'm a full-stack software engineer skilled in the MERN stack, JavaScript, and PHP. I build custom tools, websites, and apps that solve real business problems covering everything from SEO to digital marketing.
         </p>
         
         <p>

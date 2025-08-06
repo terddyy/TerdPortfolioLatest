@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,17 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
       message: "",
     },
   });
+
+  const buttonVariants = {
+    hover: { 
+      scale: 1.02,
+      transition: { duration: 0.2, ease: "easeOut" as const }
+    },
+    tap: { 
+      scale: 0.98,
+      transition: { duration: 0.1 }
+    }
+  };
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -137,20 +149,26 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
           )}
         />
 
-        <Button 
-          type="submit" 
-          className="w-full" 
-          disabled={isSubmitting}
+        <motion.div
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
         >
-          {isSubmitting ? (
-            "Sending..."
-          ) : (
-            <>
-              <Send className="w-4 h-4 mr-2" />
-              Send Message
-            </>
-          )}
-        </Button>
+          <Button 
+            type="submit" 
+            className="w-full" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              "Sending..."
+            ) : (
+              <>
+                <Send className="w-4 h-4 mr-2" />
+                Send Message
+              </>
+            )}
+          </Button>
+        </motion.div>
       </form>
     </Form>
   );

@@ -20,7 +20,8 @@ export const BeyondCodingSection = () => {
               <p className="text-sm text-muted-foreground">
                 When not studying or working, I spend my time making pitches and turning my ideas into working products. I enjoy exploring emerging technologies that inspire innovation.
                 <br />
-                I'm constantly learning, building, and experimenting—always looking for ways to improve and create meaningful solutions.
+                <br />
+                I'm constantly learning, building, and experimenting and always looking for ways to improve and create meaningful solutions.
               </p>
 
               

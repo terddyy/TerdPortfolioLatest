@@ -42,6 +42,17 @@ export const ProfileHeader = () => {
     }
   };
 
+  const buttonVariants = {
+    hover: { 
+      scale: 1.05,
+      transition: { duration: 0.2, ease: "easeOut" as const }
+    },
+    tap: { 
+      scale: 0.95,
+      transition: { duration: 0.1 }
+    }
+  };
+
   const handleJPCSClick = () => {
     window.open('https://philippinecomputersociety.org/jpcs-2/', '_blank');
   };
@@ -116,25 +127,37 @@ export const ProfileHeader = () => {
             className="flex flex-wrap items-center gap-2"
             variants={itemVariants}
           >
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-xs"
-              onClick={() => setIsModalOpen(true)}
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
             >
-              <Mail className="w-3 h-3 mr-1" />
-              Send Email
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-xs bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20"
-              onClick={handleJPCSClick}
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="text-xs"
+                onClick={() => setIsModalOpen(true)}
+              >
+                <Mail className="w-3 h-3 mr-1" />
+                Send Email
+              </Button>
+            </motion.div>
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
             >
-              <Trophy className="w-3 h-3 mr-1" />
-              JPCS Member
-              <ExternalLink className="w-3 h-3 ml-1" />
-            </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="text-xs bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20"
+                onClick={handleJPCSClick}
+              >
+                <Trophy className="w-3 h-3 mr-1" />
+                JPCS Member
+                <ExternalLink className="w-3 h-3 ml-1" />
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

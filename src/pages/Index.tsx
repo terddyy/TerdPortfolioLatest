@@ -127,7 +127,9 @@ const Index = () => {
           className="mt-6 md:mt-8 text-center text-sm text-muted-foreground border-t border-border pt-6"
           variants={footerVariants}
         >
-          © 2025 Terd Imogen Inocentes. All rights reserved.
+          © 2025 Terd Imogen Inocentes. All rights reserved. 
+          <br />
+          Design inspired by Sir Bryl
           <span className="mx-4">•</span>
           <button className="hover:text-primary transition-colors">Feedback</button>
         </motion.footer>
