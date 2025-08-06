@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/components/ui/use-toast";
 import { Send } from "lucide-react";
 
 interface ContactFormProps {
@@ -19,6 +19,7 @@ interface FormData {
 
 export function ContactForm({ onSuccess }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<FormData>({
     defaultValues: {
@@ -32,19 +33,47 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Get Formspree endpoint from environment variable or use a placeholder
+      const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/YOUR_FORM_ID';
       
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", data);
-      
-      // Reset form
-      form.reset();
-      
-      // Call success callback
-      onSuccess();
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      });
+
+      if (response.ok) {
+        // Success notification
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+          variant: "default",
+        });
+        
+        // Reset form
+        form.reset();
+        
+        // Call success callback to close modal
+        onSuccess();
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to send message');
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      
+      // Error notification
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later or contact me directly at terddy03@gmail.com",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
