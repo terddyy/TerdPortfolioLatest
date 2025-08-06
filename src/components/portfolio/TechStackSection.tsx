@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
 const techStacks = {
-  frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS"],
+  frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Bootstrap", "Material UI", "Ant Design", "Chakra UI", "Shadcn UI"],
   backend: ["Node.js", "Python", "PHP", "Laravel", "PostgreSQL", "MongoDB"],
   devops: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "GitLab CLI", "Oracle Cloud", "AWS Networking", "Azure Networking", "Aviatrix", "Aviatrix Multicloud"],
   ai: ["Torch", "Tensors", "TensorFlow", "Caffe2", "PyTorch", "Theano", "Oracle Generative AI"]
