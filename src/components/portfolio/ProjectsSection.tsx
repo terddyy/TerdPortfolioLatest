@@ -16,16 +16,7 @@ const projects = [
 		description: "AI-powered wardrobe assistant",
 		url: "https://olopscommunity.vercel.app",
 	},
-	{
-		title: "BASE404",
-		description: "Open coding bootcamp",
-		url: "https://base-404.com",
-	},
-	{
-		title: "DYNAMIS Workout Tracker",
-		description: "AI-powered workout tracker",
-		url: "https://dynamis-app.online",
-	},
+
 ];
 
 const ProjectCard = ({ project, className }: { project: typeof projects[0], className?: string }) => (

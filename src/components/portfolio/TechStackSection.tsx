@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, ExternalLink } from "lucide-react";
+import { Code, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
@@ -12,117 +12,86 @@ const techStacks = {
 };
 
 export const TechStackSection = () => {
-  const [openCategory, setOpenCategory] = useState<null | 'frontend' | 'backend' | 'devops'>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <Card className="shadow-sm w-full">
         <CardHeader className="py-4 px-5">
-          <CardTitle className="flex items-center gap-2 text-lg"> {/* Change text-lg to adjust Tech Stack title size */}
+          <CardTitle className="flex items-center gap-2 text-lg">
             <Code className="w-4 h-4 text-primary" />
             <span className="text-foreground">Tech Stack</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="px-5 pb-5 space-y-6 break-words">
-          {/* Frontend */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-medium text-foreground">Frontend</h3>
-              {techStacks.frontend.length > 5 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-primary hover:text-primary/80 text-xs"
-                  onClick={() => setOpenCategory('frontend')}
-                >
-                  View All
-                </Button>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {techStacks.frontend.slice(0, 5).map((tech) => (
-                <Badge key={tech} variant="outline" className="text-xs">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
+        <CardContent className="px-5 pb-5">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {techStacks.frontend.slice(0, 3).map((tech) => (
+              <Badge key={tech} variant="outline" className="text-xs">
+                {tech}
+              </Badge>
+            ))}
+            {techStacks.backend.slice(0, 2).map((tech) => (
+              <Badge key={tech} variant="outline" className="text-xs">
+                {tech}
+              </Badge>
+            ))}
+            <Badge variant="outline" className="text-xs">
+              +{Object.values(techStacks).flat().length - 5} more
+            </Badge>
           </div>
-          {/* Backend */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-medium text-foreground">Backend</h3>
-              {techStacks.backend.length > 5 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-primary hover:text-primary/80 text-xs"
-                  onClick={() => setOpenCategory('backend')}
-                >
-                  View All
-                </Button>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {techStacks.backend.slice(0, 5).map((tech) => (
-                <Badge key={tech} variant="outline" className="text-xs">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </div>
-          {/* DevOps & Cloud */}
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-medium text-foreground">DevOps & Cloud</h3>
-              {techStacks.devops.length > 5 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-primary hover:text-primary/80 text-xs"
-                  onClick={() => setOpenCategory('devops')}
-                >
-                  View All
-                </Button>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {techStacks.devops.slice(0, 5).map((tech) => (
-                <Badge key={tech} variant="outline" className="text-xs">
-                  {tech}
-                </Badge>
-              ))}
-            </div>
-          </div>
+          
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full text-xs"
+            onClick={() => setIsModalOpen(true)}
+          >
+            View All
+            <ChevronRight className="w-3 h-3 ml-1" />
+          </Button>
         </CardContent>
       </Card>
-      {/* Modal for each category */}
-      <FullScreenModal open={openCategory === 'frontend'} onClose={() => setOpenCategory(null)}>
-        <h2 className="text-xl font-bold mb-4">All Frontend Technologies</h2>
-        <div className="flex flex-wrap gap-2">
-          {techStacks.frontend.map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </FullScreenModal>
-      <FullScreenModal open={openCategory === 'backend'} onClose={() => setOpenCategory(null)}>
-        <h2 className="text-xl font-bold mb-4">All Backend Technologies</h2>
-        <div className="flex flex-wrap gap-2">
-          {techStacks.backend.map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </FullScreenModal>
-      <FullScreenModal open={openCategory === 'devops'} onClose={() => setOpenCategory(null)}>
-        <h2 className="text-xl font-bold mb-4">All DevOps & Cloud Technologies</h2>
-        <div className="flex flex-wrap gap-2">
-          {techStacks.devops.map((tech) => (
-            <Badge key={tech} variant="outline" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
+
+      {/* Modal for all tech stack */}
+      <FullScreenModal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className="space-y-6">
+          <h2 className="text-xl font-bold mb-6">Complete Tech Stack</h2>
+          
+          {/* Frontend */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-3 text-lg">Frontend</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.frontend.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-sm">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Backend */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-3 text-lg">Backend</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.backend.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-sm">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* DevOps & Cloud */}
+          <div>
+            <h3 className="font-semibold text-foreground mb-3 text-lg">DevOps & Cloud</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.devops.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-sm">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
         </div>
       </FullScreenModal>
     </>
