@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Mail, Calendar, Trophy } from "lucide-react";
+import { MapPin, Mail, Calendar, Trophy, ExternalLink } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { ContactModal } from "@/components/ui/contact-modal";
 
@@ -40,6 +40,10 @@ export const ProfileHeader = () => {
       scale: 1,
       transition: { duration: 0.6, ease: "easeOut" as const }
     }
+  };
+
+  const handleJPCSClick = () => {
+    window.open('https://philippinecomputersociety.org/jpcs-2/', '_blank');
   };
 
   return (
@@ -121,9 +125,15 @@ export const ProfileHeader = () => {
               <Mail className="w-3 h-3 mr-1" />
               Send Email
             </Button>
-            <Button variant="outline" size="sm" className="text-xs bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="text-xs bg-amber-500/10 text-amber-500 border-amber-500/20 hover:bg-amber-500/20"
+              onClick={handleJPCSClick}
+            >
               <Trophy className="w-3 h-3 mr-1" />
               JPCS Member
+              <ExternalLink className="w-3 h-3 ml-1" />
             </Button>
           </motion.div>
         </motion.div>
