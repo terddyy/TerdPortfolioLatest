@@ -18,30 +18,65 @@ export const TechStackSection = () => {
     <>
       <Card className="shadow-sm w-full">
         <CardHeader className="py-4 px-5">
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <Code className="w-4 h-4 text-primary" />
-            <span className="text-foreground">Tech Stack</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="px-5 pb-5">
-          <div className="flex justify-center">
+          <CardTitle className="flex items-center justify-between text-lg">
+            <div className="flex items-center gap-2">
+              <Code className="w-4 h-4 text-primary" />
+              <span className="text-foreground">Tech Stack</span>
+            </div>
             <Button
-              variant="outline"
-              size="lg"
-              className="bg-background hover:bg-accent text-foreground border-border hover:border-border/80"
+              variant="ghost"
+              size="sm"
+              className="text-primary hover:text-primary/80 text-xs"
               onClick={() => setIsModalOpen(true)}
             >
               View All
-              <ChevronRight className="w-4 h-4 ml-2" />
+              <ChevronRight className="w-3 h-3 ml-1" />
             </Button>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="px-5 pb-5 space-y-6">
+          {/* Frontend */}
+          <div>
+            <h3 className="font-medium text-foreground mb-2">Frontend</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.frontend.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Backend */}
+          <div>
+            <h3 className="font-medium text-foreground mb-2">Backend</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.backend.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* DevOps & Cloud */}
+          <div>
+            <h3 className="font-medium text-foreground mb-2">DevOps & Cloud</h3>
+            <div className="flex flex-wrap gap-2">
+              {techStacks.devops.map((tech) => (
+                <Badge key={tech} variant="outline" className="text-xs">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Modal for all tech stack categories */}
+      {/* Modal for expanded view */}
       <FullScreenModal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="space-y-8">
-          <h2 className="text-2xl font-bold mb-6">My Tech Stack</h2>
+          <h2 className="text-2xl font-bold mb-6">My Complete Tech Stack</h2>
           
           {/* Frontend */}
           <div>
