@@ -6,12 +6,10 @@ import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
 const techStacks = {
-  frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "SCSS", "Styled Components", "Vite", "Webpack", "ESLint", "Prettier"],
-  backend: ["Node.js", "Python", "Java", "PHP", "Express.js", "NestJS", "FastAPI", "Spring Boot", "Laravel", "PostgreSQL", "MySQL", "MongoDB", "DynamoDB", "OAuth", "JWT", "LDAP", "REST", "GraphQL", "gRPC", "AWS Lambda", "Firebase Functions"],
-  devops: ["AWS", "GCP", "Azure", "GitHub Actions", "Jenkins", "GitLab CI", "Terraform", "AWS CloudFormation", "Docker", "Kubernetes", "Prometheus", "Grafana", "Datadog"],
-  ai: ["TensorFlow", "PyTorch", "LangChain", "Transformers", "OpenAI", "Anthropic", "Mistral", "Hugging Face", "Llamaindex", "AutoGPT"],
-  security: ["AWS IAM", "Azure AD", "Okta", "SAP CDC", "Auth0", "Cognito", "AES", "RSA", "SHA", "GDPR", "SOC 2", "ISO 27001"],
-  cms: ["WordPress", "Strapi", "Bubble", "Webflow", "Microsoft Power Platform", "n8n"]
+  frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS"],
+  backend: ["Node.js", "Python", "PHP", "Laravel", "PostgreSQL", "MongoDB"],
+  devops: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "GitLab CLI", "Oracle Cloud", "AWS Networking", "Azure Networking", "Aviatrix", "Aviatrix Multicloud"],
+  ai: ["Torch", "Tensors", "TensorFlow", "Caffe2", "PyTorch", "Theano", "Oracle Generative AI"]
 };
 
 export const TechStackSection = () => {
@@ -42,7 +40,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">Frontend</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.frontend.slice(0, 8).map((tech) => (
+              {techStacks.frontend.map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
@@ -54,7 +52,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">Backend</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.backend.slice(0, 8).map((tech) => (
+              {techStacks.backend.map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
@@ -66,7 +64,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">DevOps & Cloud</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.devops.slice(0, 8).map((tech) => (
+              {techStacks.devops.map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
@@ -138,30 +136,6 @@ export const TechStackSection = () => {
               <h2 className="text-xl font-bold text-foreground mb-4">AI & Machine Learning</h2>
               <div className="flex flex-wrap gap-3">
                 {techStacks.ai.map((tech) => (
-                  <Badge key={tech} variant="outline" className="text-sm px-3 py-1">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            {/* Security & Identity */}
-            <div>
-              <h2 className="text-xl font-bold text-foreground mb-4">Security & Identity</h2>
-              <div className="flex flex-wrap gap-3">
-                {techStacks.security.map((tech) => (
-                  <Badge key={tech} variant="outline" className="text-sm px-3 py-1">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            {/* CMS & No-Code */}
-            <div>
-              <h2 className="text-xl font-bold text-foreground mb-4">CMS & No-Code</h2>
-              <div className="flex flex-wrap gap-3">
-                {techStacks.cms.map((tech) => (
                   <Badge key={tech} variant="outline" className="text-sm px-3 py-1">
                     {tech}
                   </Badge>
