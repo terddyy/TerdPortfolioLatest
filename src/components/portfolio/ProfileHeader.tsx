@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -8,48 +9,109 @@ import { ContactModal } from "@/components/ui/contact-modal";
 
 export const ProfileHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const avatarVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" as const }
+    }
+  };
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row gap-6">
+      <motion.div 
+        className="flex flex-col sm:flex-row gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Left side - Avatar */}
-        <div className="flex-shrink-0">
+        <motion.div 
+          className="flex-shrink-0"
+          variants={avatarVariants}
+        >
           <Avatar className="w-32 h-32 md:w-36 md:h-36 rounded-lg">
-            <AvatarImage src="/image/profile.png" alt="Profile" />
-            <AvatarFallback className="text-xl font-bold bg-primary text-primary-foreground rounded-lg">
+            <AvatarImage 
+              src="/image/profile.png" 
+              alt="Profile" 
+              onLoad={() => setImageLoaded(true)}
+              style={{ opacity: imageLoaded ? 1 : 0 }}
+            />
+            <AvatarFallback 
+              className="text-xl font-bold bg-primary text-primary-foreground rounded-lg"
+              style={{ opacity: imageLoaded ? 0 : 1 }}
+            >
               TI
             </AvatarFallback>
           </Avatar>
-        </div>
+        </motion.div>
 
         {/* Right side - Info */}
-        <div className="flex-1 min-w-0">
+        <motion.div 
+          className="flex-1 min-w-0"
+          variants={itemVariants}
+        >
           <div className="flex items-start justify-between gap-4 mb-1">
             <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
+              <motion.div 
+                className="flex flex-wrap items-center gap-2 mb-1"
+                variants={itemVariants}
+              >
                 <h1 className="text-xl md:text-2xl font-bold text-foreground truncate">
                   Terd Imogen Inocentes
                 </h1>
                 <Badge variant="secondary" className="bg-success/10 text-success border-success/20 text-xs flex-shrink-0">
                   ✓ Verified
                 </Badge>
-              </div>
-              <div className="flex items-center gap-1 text-muted-foreground text-sm mb-2">
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-1 text-muted-foreground text-sm mb-2"
+                variants={itemVariants}
+              >
                 <MapPin className="w-3 h-3 flex-shrink-0" />
                 <span className="truncate">Manila, Philippines</span>
-              </div>
-              <p className="text-base text-muted-foreground mb-4 line-clamp-2">
+              </motion.div>
+              <motion.p 
+                className="text-base text-muted-foreground mb-4 line-clamp-2"
+                variants={itemVariants}
+              >
                 BSCS Student & Full-Stack Developer
-              </p>
+              </motion.p>
             </div>
-            <ModeToggle />
+            <motion.div variants={itemVariants}>
+              <ModeToggle />
+            </motion.div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            {/* <Button variant="default" size="sm" className="text-xs">
-              <Calendar className="w-3 h-3 mr-1" />
-              Schedule a Call
-            </Button> */}
+          <motion.div 
+            className="flex flex-wrap items-center gap-2"
+            variants={itemVariants}
+          >
             <Button 
               variant="outline" 
               size="sm" 
@@ -63,9 +125,9 @@ export const ProfileHeader = () => {
               <Trophy className="w-3 h-3 mr-1" />
               JPCS Member
             </Button>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       <ContactModal 
         isOpen={isModalOpen} 
