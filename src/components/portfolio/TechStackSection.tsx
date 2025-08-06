@@ -40,7 +40,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">Frontend</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.frontend.map((tech) => (
+              {techStacks.frontend.slice(0, 6).map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
@@ -52,7 +52,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">Backend</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.backend.map((tech) => (
+              {techStacks.backend.slice(0, 6).map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
@@ -64,7 +64,7 @@ export const TechStackSection = () => {
           <div>
             <h3 className="font-medium text-foreground mb-2">DevOps & Cloud</h3>
             <div className="flex flex-wrap gap-2">
-              {techStacks.devops.map((tech) => (
+              {techStacks.devops.slice(0, 5).map((tech) => (
                 <Badge key={tech} variant="outline" className="text-xs">
                   {tech}
                 </Badge>
