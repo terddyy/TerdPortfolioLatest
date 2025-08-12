@@ -14,9 +14,17 @@ const projects = [
 	},
 	{
 		title: "OlopscCommunity Platform",
-		description: "AI-powered wardrobe assistant",
+		description: "Community platform for OLOPSC students",
 		url: "https://olopscommunity.vercel.app",
 	},
+
+	{
+		title: "CertiFree",
+		description: "Industry-Aligned Certification Programs for Filipino Upskillings",
+		url: "https://e-konsulta.vercel.app/",
+	},
+
+	
 ];
 
 const ProjectCard = ({ project, className }: { project: typeof projects[0], className?: string }) => {
