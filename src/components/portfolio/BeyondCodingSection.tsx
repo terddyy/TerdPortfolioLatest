@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const BeyondCodingSection = () => {
   return (
-    <Card className="shadow-sm min-h-[23.1rem]">
+    <Card className="shadow-sm min-h-[24.4rem]">
       <CardHeader className="py-4 px-5">
         <CardTitle className="flex items-center gap-2">
           <Heart className="w-4 h-4 text-primary" />

@@ -24,7 +24,7 @@ const experiences = [
 
 export const CareerSection = () => {
   return (
-    <Card className="shadow-sm w-full min-h-[38rem]">
+    <Card className="shadow-sm w-full min-h-[37.3rem]">
 
       <CardHeader className="py-4 px-5">
         <CardTitle className="flex items-center gap-2 text-base">
