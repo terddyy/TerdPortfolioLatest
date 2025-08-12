@@ -96,30 +96,38 @@ const Index = () => {
             <BeyondCodingSection />
           </motion.div>
           
-          {/* Certifications: Wider card */}
+          {/* Projects */}
           <motion.div 
-            className="md:col-span-8 md:row-span-1"
+            className="md:col-span-8"
+            variants={sectionVariants}
+          >
+            <ProjectsSection />
+          </motion.div>
+
+          {/* Certifications: Wider card (left of Blog / before Connect) */}
+          <motion.div 
+            className="md:col-span-8"
             variants={sectionVariants}
           >
             <CertificationsSection />
           </motion.div>
-          
-          {/* Projects and Blog container */}
-          <motion.div 
-            className="md:col-span-8 space-y-4 md:space-y-2"
-            variants={sectionVariants}
-          >
-            <ProjectsSection />
-            <BlogSection />
-          </motion.div>
-          
-          {/* Connect: Small card */}
+
+          {/* Connect: Small card (to the right of Certifications) */}
           <motion.div 
             className="md:col-span-4"
             variants={sectionVariants}
           >
             <ConnectSection />
           </motion.div>
+
+          {/* Blog: Narrower card (right of Certifications) */}
+          <motion.div 
+            className="md:col-span-4"
+            variants={sectionVariants}
+          >
+            <BlogSection />
+          </motion.div>
+           
         </div>
 
         {/* Footer */}
