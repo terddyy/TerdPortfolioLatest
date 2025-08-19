@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
 const blogPosts = [
-  // {
-  //   title: "Navigating the Startup Jungle: Building a Productive and Positive Culture",
-  //   date: "July 3, 2024",
-  //   readTime: "3 min read",
-  //   excerpt: "This post explores the key elements of a successful startup culture, offering practical tips and examples for creating a productive and positive environment."
-  // }
+  {
+    title: "The Rise of AI Agent Coding: Building Autonomous Developers",
+    date: "August 20, 2025",
+    readTime: "4 min read",
+    excerpt: "AI agents are no longer just research toys—they’re evolving into autonomous coding assistants that can write, test, and deploy software with minimal human input. This post explores how AI agents are changing the way we build applications."
+  }
 ];
 
 export const BlogSection = () => {
@@ -55,13 +55,13 @@ export const BlogSection = () => {
               </p>
               <div className="flex flex-wrap gap-2 pt-1">
                 <Badge variant="secondary" className="bg-muted text-muted-foreground text-xs whitespace-nowrap">
-                  Startup Culture
+                  Artificial Intelligence
                 </Badge>
                 <Badge variant="secondary" className="bg-muted text-muted-foreground text-xs whitespace-nowrap">
                   Programming
                 </Badge>
                 <Badge variant="secondary" className="bg-muted text-muted-foreground text-xs whitespace-nowrap">
-                  Web Development
+                  Agentic
                 </Badge>
               </div>
             </article>

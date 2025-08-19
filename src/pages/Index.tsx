@@ -122,7 +122,7 @@ const Index = () => {
 
           {/* Blog: Narrower card (right of Certifications) */}
           <motion.div 
-            className="md:col-span-4"
+            className="md:col-span-6"
             variants={sectionVariants}
           >
             <BlogSection />
