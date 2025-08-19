@@ -16,7 +16,7 @@ export const AboutSection = () => {
         </p>
         
         <p>
-        I founded a gaming community of 4,000+ members and have a background in Computer Science and IT support. My focus is on building efficient, high-impact systems that help teams and businesses grow.
+        I founded a gaming community of 4000 members and have a background in Computer Science and IT support. My focus is on building efficient, high-impact systems that help teams and businesses grow.
         </p>
 
         <p>
