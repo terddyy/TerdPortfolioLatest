@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
 const blogPosts = [
-  {
-    title: "Navigating the Startup Jungle: Building a Productive and Positive Culture",
-    date: "July 3, 2024",
-    readTime: "3 min read",
-    excerpt: "This post explores the key elements of a successful startup culture, offering practical tips and examples for creating a productive and positive environment."
-  }
+  // {
+  //   title: "Navigating the Startup Jungle: Building a Productive and Positive Culture",
+  //   date: "July 3, 2024",
+  //   readTime: "3 min read",
+  //   excerpt: "This post explores the key elements of a successful startup culture, offering practical tips and examples for creating a productive and positive environment."
+  // }
 ];
 
 export const BlogSection = () => {

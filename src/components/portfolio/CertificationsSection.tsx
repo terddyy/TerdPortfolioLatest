@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 
-	export const certifications = [
-		{
+export const certifications = [
+	{
 			title: "Google Advanced Data Analytics Professional — In Progress (near completion)",
-			issuer: "Google",
-			credentialLink: "https://example.com/credential1",
-		},
+		issuer: "Google",
+		credentialLink: "https://example.com/credential1",
+	},
 	{
 		title: "ORACLE OCI Certified Generative AI Professional",
 		issuer: "Oracle",
