@@ -12,11 +12,28 @@ const projects = [
 		description: "Online doctor consultations for Filipinos using AI",
 		url: "https://e-konsulta.vercel.app/",
 	},
+
+	{
+		title: "CertiFree",
+		description: "Industry-Aligned Certification Programs for Filipino Upskillings",
+		url: "https://certifree.zentariph.com/",
+	},
+
 	{
 		title: "OlopscCommunity Platform",
-		description: "AI-powered wardrobe assistant",
+		description: "Community platform for OLOPSC students",
 		url: "https://olopscommunity.vercel.app",
 	},
+
+	{
+		title: "TerdKatsu POS",
+		description: "custom point-of-sale system I developed specifically for my food business",
+		url: "https://terdkatsu.infy.uk/login.php"
+	},
+
+	
+
+	
 ];
 
 const ProjectCard = ({ project, className }: { project: typeof projects[0], className?: string }) => {

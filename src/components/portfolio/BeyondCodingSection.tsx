@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const BeyondCodingSection = () => {
   return (
-    <Card className="shadow-sm min-h-[23.1rem]">
+    <Card className="shadow-sm min-h-[16.2rem]">
       <CardHeader className="py-4 px-5">
         <CardTitle className="flex items-center gap-2">
           <Heart className="w-4 h-4 text-primary" />
@@ -18,10 +18,10 @@ export const BeyondCodingSection = () => {
             <div>
               
               <p className="text-sm text-muted-foreground">
-                When not studying or working, I spend my time making pitches and turning my ideas into working products. I enjoy exploring emerging technologies that inspire innovation.
+              In my free time, I enjoy turning ideas into real products and exploring new technologies that drive innovation.
                 <br />
                 <br />
-                I'm constantly learning, building, and experimenting and always looking for ways to improve and create meaningful solutions.
+                I'm always learning and building, focused on solving problems and creating meaningful solutions.
               </p>
 
               
