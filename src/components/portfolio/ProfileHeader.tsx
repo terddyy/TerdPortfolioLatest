@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Mail, Calendar, Trophy, ExternalLink } from "lucide-react";
+import { FaFacebook } from "react-icons/fa6";
 import { ModeToggle } from "@/components/mode-toggle";
 import { ContactModal } from "@/components/ui/contact-modal";
 
@@ -162,6 +163,14 @@ export const ProfileHeader = () => {
                 <ExternalLink className="w-3 h-3 ml-1" />
               </Button>
             </motion.div>
+            <a
+              href="https://www.facebook.com/TERDTHEPRO"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              <FaFacebook className="h-5 w-5" />
+            </a>
           </motion.div>
         </motion.div>
       </motion.div>
