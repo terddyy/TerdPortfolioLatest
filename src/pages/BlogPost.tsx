@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { blogPosts } from "@/components/portfolio/BlogSection"; // Assuming blogPosts is exported
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
@@ -16,7 +19,15 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8 py-10">
+      <Button
+        variant="ghost"
+        onClick={() => navigate(-1)}
+        className="mb-6 text-primary hover:text-primary/80 flex items-center gap-2"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back
+      </Button>
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
         <span className="flex items-center gap-1">
@@ -42,7 +53,7 @@ const BlogPost = () => {
         <span>{post.readTime}</span>
       </div>
       <div
-        className="prose dark:prose-invert max-w-none"
+        className="prose dark:prose-invert max-w-none text-foreground"
         dangerouslySetInnerHTML={{ __html: post.fullContent }}
       />
     </div>
