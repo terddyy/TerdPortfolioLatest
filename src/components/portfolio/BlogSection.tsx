@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { FullScreenModal } from "@/components/ui/FullScreenModal";
 import { useNavigate } from "react-router-dom";
 
-const blogPosts = [
+export const blogPosts = [
   {
     title: "The Rise of AI Agent Coding: Building Autonomous Developers",
     date: "August 20, 2025",
